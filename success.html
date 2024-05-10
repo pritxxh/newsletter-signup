@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Mentor | Newsletter Subscription Success</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="content">
+                <div class="success-message">
+                    <img src="assets/images/icon-success.svg" alt="">
+                    <h2>Thanks for subscribing!</h2>
+                    <p>A confirmation email has been sent to <span id="confirmed-email"></span>. Please open it and
+                        click the button inside to confirm your subscription.</p>
+                    <button id="dismiss-message">Dismiss message</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        const email = urlParams.get('email');
+        const confirmedEmailElement = document.getElementById('confirmed-email');
+        const dismissMessageButton = document.getElementById('dismiss-message');
+        if (email) {
+            confirmedEmailElement.textContent = decodeURIComponent(email);
+        } else {
+            confirmedEmailElement.textContent = 'your email address';
+        }
+
+        dismissMessageButton.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+
+    </script>
+</body>
+
+</html>
